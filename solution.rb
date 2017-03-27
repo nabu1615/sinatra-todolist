@@ -1,12 +1,13 @@
 require 'sinatra'
 require 'make_todo'
 
+# List
 get '/' do
 	@tasks = Tarea.all
 	erb :index
 end
 
-# Post
+# New
 post '/' do
 	@task = Tarea.create("#{params["title"]}")
 	redirect '/'
